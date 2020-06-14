@@ -12,7 +12,10 @@ Bundler.require(*Rails.groups)
 
 module App
   class Application < Rails::Application
-  config.load_defaults 6.0
-  config.generators.system_tests = nil
+    config.load_defaults 6.0
+    config.generators.system_tests = nil
+    config.time_zone ='Asia/Tokyo'
+    config.i18n.default_locale = :ja
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
   end
 end
